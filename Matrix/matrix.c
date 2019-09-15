@@ -1,0 +1,77 @@
+#include<stdio.h>
+
+int main()
+
+{
+	int m[10][10],r,c,sumr=0,flag=0,sumd=0,sumc=0,n;
+          printf("Enter the size of matrix");
+          scanf("%d",&n);
+          printf("\nEnter the elements of matrix");
+     for (r=0;r<n;r++)//Taking matrix from user
+     {
+    	for(c=0;c<n;c++)
+    	{
+    		scanf("%d",&m[r][c]);
+    	}
+
+     }
+     printf("\nEntered matrix is: ");//Displaying the matrix
+     for (r=0;r<n;r++)
+          {
+    	    printf("\n");
+         	for(c=0;c<n;c++)
+         	{
+         		printf("\t%d",m[r][c]);
+         	}
+
+          }
+     for (r=0;r<n;r++)//Printing the sum of diagonals.
+          {
+         	for(c=0;c<n;c++)
+         	{
+         		if (r==c)
+         		{
+         		sumd=sumd+m[r][c];
+         		}
+
+         	}
+
+          }
+     printf("\nsum of the diagonals is:%d",sumd);
+
+    for (r=0;r<n;r++)//.Calculating the sum of rows.
+         {
+              	for(c=0;c<n;c++)
+             {
+              	        sumr=sumr+m[r][c];
+             }
+              	if (sumr==sumd)
+              	{
+              		flag=1;
+              	}
+
+
+         }
+
+
+    for (c=0;c<n;c++)//.Calculating the sum of columns.
+             {
+                  	for(r=0;r<n;r++)
+                  {
+                  	sumc=sumc+m[r][c];
+                  }
+                  	if (sumc==sumd)
+                  	{
+                  		flag=1;
+                        }
+
+             }
+            if(flag==1)
+            {
+            	printf("\nEntered matrix is magic square");
+
+            }
+               else printf("\nEntered matrix is not magic square");
+
+return 0;
+}
